@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<style>
+    body{margin:0;height:100vh;display:flex;justify-content:center;align-items:center;
+         background:url("{{ url_for('static', filename='imagens/foto4.jpg') }}") center/cover fixed;}
+    .box{background:rgba(255,255,255,0.95);padding:40px;border-radius:15px;width:350px;text-align:center;box-shadow:0 15px 40px rgba(0,0,0,0.5);}
+    img{width:180px;margin-bottom:20px;}
+    input,button{width:100%;padding:12px;margin:8px 0;border-radius:8px;font-size:16px;box-sizing:border-box;}
+    input{border:1px solid #ccc;}
+    button{background:#667eea;color:white;border:none;cursor:pointer;}
+    button:hover{background:#5a6fd8;}
+    .erro{color:red;margin-top:10px;font-weight:bold;}
+</style>
+</head>
+<body>
+<div class="box">
+    <img src="{{ url_for('static', filename='imagens/foto3.png') }}" alt="Logo">
+    <h2>Login</h2>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}<div class="erro">{{ messages[0] }}</div>{% endif %}
+    {% endwith %}
+    <form method="post">
+        <input type="text" name="usuario" placeholder="Usuário" required autofocus>
+        <input type="password" name="senha" placeholder="Senha" required>
+        <button type="submit">Entrar</button>
+    </form>
+</div>
+</body>
+</html>

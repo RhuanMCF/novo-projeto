@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Bruno</title>
+<style>
+    body{margin:0;background:#1e90ff;color:white;font-family:Arial;text-align:center;padding:40px 20px;}
+    header{font-size:35px;font-weight:bold;padding:20px;background:rgba(0,0,0,0.2);}
+    .card{width:280px;height:280px;margin:40px auto;perspective:1000px;cursor:pointer;display:inline-block;}
+    .inner{position:relative;width:100%;height:100%;transition:transform 0.8s;transform-style:preserve-3d;}
+    .card.flip .inner{transform:rotateY(180deg);}
+    .front,.back{position:absolute;width:100%;height:100%;backface-visibility:hidden;border-radius:20px;}
+    .front{background:url("{{ url_for('static', filename='imagens/foto1.png') }}") center/cover;}
+    .back{background:#0008;display:flex;align-items:center;justify-content:center;font-size:24px;padding:20px;
+          transform:rotateY(180deg);text-align:center;}
+    a{color:#fff;text-decoration:underline;margin-top:40px;display:block;font-size:20px;}
+</style>
+</head>
+<body>
+<header>Olá, Bruno! Você é um usuário comum.</header>
+<div class="card" onclick="this.classList.toggle('flip')">
+    <div class="inner">
+        <div class="front"></div>
+        <div class="back">NÃO USEM DROGAS</div>
+    </div>
+</div>
+<a href="/logout">Sair do sistema</a>
+</body>
+</html>
